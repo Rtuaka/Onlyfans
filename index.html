@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only fans</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init('GbEaqe35KKeq4ipdv'); // Replace with your actual user ID from EmailJS
+        })();
+    </script>
+    <style>
+        #alertMessage {
+            display: none;
+            background-color: #ff2b5f;
+            color: #ffffff;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 9px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1000;
+        }
+        .body{
+   align-items: center;
+   justify-content: center;
+   font-family: "Poppins", sans-serif;
+   }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            text-align: center; 
+   margin-top: 69px;
+            /* Center text content */
+        }
+        .close button {
+            color: #aaa;
+            height: 37px;
+            font-size: 21px;
+            border-radius: 25px;
+            border: none;
+            text-align: center;
+            background-color: #55c1ff;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .input-field {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Add space between inputs */
+            margin: 20px 0; /* Add margin for spacing */
+        }
+        .input-field input {
+            height: 67px;
+            width: 56px;
+            border-radius: 6px;
+            outline: none;
+            font-size: 31px;
+            text-align: center;
+            border: 2px solid #000000;
+        }
+        .input-field input:focus {
+            outline: 2px solid #1cff15;
+            border-color: transparent;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        }
+        .input-field input::-webkit-inner-spin-button,
+        .input-field input::-webkit-outer-spin-button {
+            display: none;
+        }
+        .image {
+            text-align: center; /* Center the image container */
+            margin-bottom: 20px; /* Add margin for spacing */
+        }
+        .image img {
+            width: 140px;
+            height: 120px;
+            border-radius: 50%;
+        }
+  .T2{
+    font-size: 24.5px;
+    
+}
+.T3{
+    margin-top: 38px;
+}
+.name{
+    height: 55px;
+    width: px;
+    margin-top: 31px;
+    
+   
+}
+.man input{
+ 
+  align-items : center ;          margin-top: 31px;
+    width: 95%;
+    height: 53px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 19px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 89 px;
+    font-weight: 400;
+ sans-serif;
+    font-weight: 400;
+
+}
+.btn button{
+    background-color: #40b6ffd3;
+    color: #fff;
+    margin-top: 33px;
+    align-items: center;
+    text-align: center;
+    margin-left: 3px;
+    width: 350px;
+    height: 45px;
+    border: none;
+    font-size: 21px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.alertMessage {
+            display: none;
+            background-color: #ff000a;
+            color: #ffffff;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1000;
+    }
+    
+    .none {
+        display: none;
+        background-color: #ff1515;
+        color: #ffffff;
+        padding: 15px;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        text-align: center;
+        margin-top: 10px;
+    }
+   
+
+    </style>
+</head>
+<body>
+    
+    <img src="fan (2).jpg" height="60" >
+    <div class="T2">Sign up to explore your favorite creators</div>
+    <div class="T3">Create your account</div>
+
+    <form id="emailForm">
+        <div class="man">
+            <input type="text" name="name" placeholder="Name" required>
+        </div>
+        <div class="man">
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="man">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="btn">
+            <button type="submit" id="sendButton">SIGN-UP</button>
+        </div>
+    </form>
+    <div id="alertMessage">OTP Sent Successfully Please Check Your Email!!!</div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="image">
+                <img src="images.png" alt="OTP Image">
+            </div>
+            <h4>Please Enter The One-Time-Password That Was Sent To Your Email. Please Check Your Mailbox 📨📩!!!!.</h4>
+            <div class="container">
+                <header>
+                    <i class="bx bxs-check-shield"></i>
+    
+    
+
+                </header>
+                <h4>Enter OTP Code</h4>
+                <div class="input-field">
+                    <input type="number" id="otp1" />
+                    <input type="number" id="otp2" disabled />
+                    <input type="number" id="otp3" disabled />
+                    <input type="number" id="otp4" disabled />
+                </div>
+                <div class="close">
+                    <button id="verifyButton">Verify OTP</button>
+           
+      <div class="none" id="incorrectOtpMessage" >
+  Invalid OTP Please Check Your Email and Type The Correct Code Here Again..Thank you!!!!!.
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the email value from the form
+            var email = document.getElementById('email').value;
+
+            // Set up the parameters for the email
+            var templateParams = {
+                to_email: email,
+                // You can add other parameters here if needed
+            };
+
+            // Send the email using EmailJS
+            emailjs.send('service_r5lfui5', 'template_os55rja', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Show the alert message
+                    var alertMessage = document.getElementById('alertMessage');
+                    alertMessage.style.display = 'block';
+
+                    // Hide the alert message after 3 seconds
+                    setTimeout(function() {
+                        alertMessage.style.display = 'none';
+                    }, 5000); // 3 seconds delay
+
+                    // Open the modal after email is successfully sent
+                    var modal = document.getElementById('myModal');
+                    modal.style.display = 'flex';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Failed to send email.');
+                });
+        });
+
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+     
+    document.addEventListener("DOMContentLoaded", function() {
+        var incorrectOtpMessage = document.getElementById('incorrectOtpMessage');
+        incorrectOtpMessage.style.display = 'none';
+    });
+
+    function checkOTP() {
+        var otp1 = document.getElementById('otp1').value;
+        var otp2 = document.getElementById('otp2').value;
+        var otp3 = document.getElementById('otp3').value;
+        var otp4 = document.getElementById('otp4').value;
+        var otp = otp1 + otp2 + otp3 + otp4;
+
+        if (otp.length === 4) {
+            if (otp === '5683') {
+                window.location.href = 'about.html'; // Redirect to another page
+            } else {
+                var incorrectOtpMessage = document.getElementById('incorrectOtpMessage');
+                incorrectOtpMessage.style.display = 'block';
+
+                // Hide the incorrect OTP message after 3 seconds
+                setTimeout(function() {
+                    incorrectOtpMessage.style.display = 'none';
+                }, 3000); // 3 seconds delay
+            }
+        }
+    }
+
+    const inputs = document.querySelectorAll(".input-field input");
+
+    // Iterate over all inputs
+    inputs.forEach((input, index1) => {
+        input.addEventListener("keyup", (e) => {
+            // Get the current input, next input, and previous input
+            const currentInput = input,
+                nextInput = input.nextElementSibling,
+                prevInput = input.previousElementSibling;
+
+            // If the value has more than one character then clear it
+            if (currentInput.value.length > 1) {
+                currentInput.value = "";
+                return;
+            }
+            // If the next input is disabled and the current value is not empty
+            // Enable the next input and focus on it
+            if (nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "") {
+                nextInput.removeAttribute("disabled");
+                nextInput.focus();
+            }
+
+            // If the backspace key is pressed
+            if (e.key === "Backspace") {
+                // Iterate over all inputs again
+                inputs.forEach((input, index2) => {
+                    // If the index1 of the current input is less than or equal to the index2 of the input in the outer loop
+                    // and the previous element exists, set the disabled attribute on the input and focus on the previous element
+                    if (index1 <= index2 && prevInput) {
+                        input.setAttribute("disabled", true);
+                        input.value = "";
+                        prevInput.focus();
+                    }
+                });
+            }
+
+            // Check OTP only when all 4 inputs are filled
+            if (otp1.value && otp2.value && otp3.value && otp4.value) {
+                checkOTP();
+            }
+        });
+    });
+
+    // Focus the first input which index is 0 on window load
+    window.addEventListener("load", () => inputs[0].focus());
+
+    // Add event listener for the Verify OTP button
+    document.getElementById('verifyButton').addEventListener('click', checkOTP);
+</script>  
+    
+    

@@ -1,0 +1,68 @@
+*{
+ .body{
+    text-align: center;
+    justify-content: center;
+   font-family: "Poppins", sans-serif;
+
+     }
+  .Toy img{
+   height: 700px;
+   width: 500px;
+  }
+.T2{
+    font-size: 24.5px;
+    
+}
+.T3{
+    margin-top: 38px;
+}
+.name{
+    height: 55px;
+    width: px;
+    margin-top: 31px;
+    
+   
+}
+.man input{
+ 
+  align-items : center ;          margin-top: 31px;
+    width: 97%;
+    height: 53px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 19px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 89 px;
+    font-weight: 400;
+ sans-serif;
+    font-weight: 400;
+
+}
+.btn button{
+    background-color: #40b6ffd3;
+    color: #fff;
+    margin-top: 33px;
+    align-items: center;
+    text-align: center;
+    margin-left: 3px;
+    width: 350px;
+    height: 45px;
+    border: none;
+    font-size: 21px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.alertMessage {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1000;
+    }

